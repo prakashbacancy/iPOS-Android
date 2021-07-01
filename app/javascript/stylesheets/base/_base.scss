@@ -1,0 +1,30 @@
+@import "../abstract/mixins";
+html{
+    font-size: 0.8125rem;
+    @include respondMin(sm-phone){
+        font-size: 0.875rem;
+    }
+    @include respondMin(md-tab ){
+        font-size: 0.9375rem;
+    }
+    @include respondMin(xxl-full-desktop){
+        font-size: 1rem;
+    }    
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'SF Pro Text';
+    font-size:19px;
+    color:#1d1d1f;
+    font-weight: normal;
+    padding:0;
+    margin:0;
+}
+
+.wrapper {
+    width:100%;
+    float:left;
+    padding:0;
+    margin:0;
+    position: relative;
+}
