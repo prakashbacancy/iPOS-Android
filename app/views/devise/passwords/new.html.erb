@@ -1,0 +1,105 @@
+<section class="content-wrapper admin-login ml-0"> 
+  <div class="content">
+    <div class="admin-login-inner mx-auto">
+      <h2 class="admin-main-title text-darkgray1 mb-3">Forgot your password?</h2>
+      
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: 'inquiry-form', method: :post}) do |f| %>
+        <% flash.each do |key, value| %>
+          <% if key == "alert" and value == "Invalid Email or password." %>
+            <div class="alert-message-top">
+              <div class="alert alert-<%= key %>" id="flashMessage"> <%= value %></div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', 'data-parsley-required': 'true', 'data-parsley-required-message': 'Email cannot be blank', 'data-parsley-trigger': 'keyup focusout'%>
+          <label for="user_email">Email</label>
+        </div>
+        <%= f.submit "Send me reset password instructions", class: 'btn btn-admin password-btn w-100 mb-4' %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  (function ($) {
+    // "use strict"; // Start of use strict
+
+    // Detect when form-control inputs are not empty
+    $(".inquiry-form .form-control").on("input", function () {
+      if ($(this).val()) {
+        $(this).addClass("hasValue");
+      } else {
+        $(this).removeClass("hasValue");
+      }
+    });
+  })(jQuery); // End of use strict
+</script>
+<style type="text/css">
+  .message{position: inherit !important; font-size: 12px !important; font-weight: 500 !important;}
+  
+  .inquiry-form .form-group .form-control.hasValue~label,
+  .inquiry-form .form-group .form-control:focus~label {
+    padding-top: 5px;
+  }
+  
+  .inquiry-form .form-control {
+    padding-top: 25px;
+    background-color: #fff !important;
+    border-color: #d2d6de !important;
+    height: calc(3.25rem + 10px);
+    padding: 5 5;
+    border-radius: 5px
+  }
+
+  .inquiry-form .form-group label {
+    top: 15px;
+    left: 23px;
+  }
+
+  @media (max-width: 575px) {
+    .inquiry-form .form-group label {
+      left: 21px;
+    }
+  }
+
+  .wrapper {
+    background-image: url('/assets/login_social_icon');
+    position: relative;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 100%;
+  } 
+
+  @media (max-width: 575px) {
+    .wrapper {
+      background-size: auto 250px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .wrapper {
+      background-size: 100%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .wrapper {
+      background-size: auto;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .wrapper {
+      background-size: auto;
+    }
+  }
+
+  .main-footer {
+    opacity: 0.9;
+  }
+
+  .admin-login-inner {
+    border: #FAFAFA !important;
+  }
+</style>
