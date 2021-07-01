@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Role.create(name: 'superadmin')
+User.create(email: 'admin@bacancy.com', password: '123456', role_id: Role.find_by(name: 'superadmin').id, password_confirmation: '123456', user_name: 'superadmin')
