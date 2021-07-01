@@ -1,36 +1,70 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<header class="main-header">
+
+  <!-- Sidebar toggle button-->
+  <div class="logo">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"><span class="sr-only">Toggle
+        navigation</span>
+      <% unless [["expeditor_kitchens", "edit"]].include?([params[:controller], params[:action]]) %>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      <% end %>
+    </a>
+  </div>
+
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top navbar-expand-md navbar-light">
+    <h5 class="navbar-top-title text-darkgray1 fw-500 text-uppercase mb-0">
+    </h5>
+    <!--
+    <div id="flashMessage">
+      <%#= render 'layouts/flash_messages' %>
+    </div>
+    -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <i class="fa fa-ellipsis-v"></i>
+      </span>
     </button>
+
+    <!-- Navbar Right Menu -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a href="javascript:;" class="nav-link dropdown-toggle fw-500 d-flex align-items-center" data-toggle="dropdown">
+            <%#= image_tag 'ic_language.svg', alt: "", class: "profile-circle nav-circie" %><span class="text-truncate-small">English (United States)</span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">English (United States)</a>
+            <a class="dropdown-item" href="#">English (Canada)</a>
+            <a class="dropdown-item" href="#">French (Canada)</a>
+          </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+          <a href="javascript:;" class="nav-link dropdown-toggle fw-500 d-flex align-items-center"
+            data-toggle="dropdown">
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <div class="dropdown-menu">
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <li class="nav-item dropdown">
+          <a href="javascript:;" class="nav-link dropdown-toggle fw-500 d-flex align-items-center"
+            data-toggle="dropdown">
+            <div class="nav-circie d-flex align-items-center justify-content-center">
+              <%#= image_tag 'ic_info_header.svg', alt: "" %></div> Help
+          </a>
+          <div class="dropdown-menu">
+            <div class="help d-flex justify-content-between">
+              <h6 class="mb-0">Help</h6>
+              <a class="text-blue2 text-uppercase py-0" href="#"><i class="fa fa-question-circle"></i> Browse Help</a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"
+              href=""><i
+                class="fa fa-envelope mr-1"></i> Email Support</a>
+          </div>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
