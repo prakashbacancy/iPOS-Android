@@ -1,0 +1,50 @@
+.inquiry-form {
+    .form-group {
+        margin-bottom: 30px;
+    }
+    .form-control {
+        background-color: transparent;
+        font-size: 18px;
+        color: #fff;
+        height:calc(3.25rem + 2px);
+        padding: .575rem 1.5rem;
+        border:#4c4c4c 1px solid;
+        border-radius: 3px;
+        &:focus {
+            background-color: transparent;
+            color: #fff;
+            box-shadow:none;
+            outline: none;
+        }
+    }
+    textarea.form-control {
+        height: 130px;  
+    }
+}
+
+
+
+.login-form {
+    .form-group {
+        margin-bottom: 30px;
+    }
+    .form-control {
+        background-color: transparent;
+        font-size: 18px;
+        color: #fff;
+        height:calc(3.25rem + 2px);
+        padding: .575rem 1.5rem;
+        border:#4c4c4c 1px solid;
+        border-radius: 3px;
+        &:focus {
+            background-color: transparent;
+            color: #fff;
+            box-shadow:none;
+            outline: none;
+        }
+    }
+    textarea.form-control {
+        height: 130px;  
+    }
+}
+

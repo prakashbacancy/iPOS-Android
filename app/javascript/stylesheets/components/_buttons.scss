@@ -1,0 +1,58 @@
+.btn {
+    font-family: 'SF Pro Text';
+    font-size:17px;
+    font-weight: 500;
+    padding: 1.1rem 2rem;
+    border: transparent 1px solid;
+    min-width: 150px;
+		border-radius: 5px;
+	@media (max-width: 767px) {
+		padding: 0.9rem 1rem;	
+	}
+}
+
+.btn-blue {
+	background-color:#007aff;
+	color:#fff;
+	border-color:#007aff;
+	&:hover {
+		background-color:#1786ff;
+		color:#fff;
+		border-color:#1786ff;
+	}
+}
+
+.btn-yellow {
+	background: #fbbe36;
+	border-color: #fbbe36;
+	color: #fff;
+	&:hover {
+		background: #cf9312;
+		border-color: #cf9312;
+		color: #fff;
+	}
+}
+.btn-submit {
+	background-color: #0372cb;
+	background: linear-gradient(#3f9fea,#0372cb);
+	color: #fefffe;
+	border: #0077cc 1px solid;
+	padding: 0.9rem 1rem;
+	border-radius: 3px;
+	border: none;
+	&:hover {
+		background-color: #147bcd;
+		background: linear-gradient(#51a9ee,#147bcd);
+		color: #fefffe;
+		border-color: #1482d0;
+		text-decoration: none;
+	}    
+}
+
+
+.link-btn{
+  font-size: 21px;
+  &:hover{
+    text-decoration: underline;
+  }
+}
