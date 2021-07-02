@@ -1,14 +1,17 @@
-<%#footer_class = current_user.present? ? "" : 'ml-0' %>
-<footer class="main-footer fixed">
-  <div class="d-lg-flex align-items-center justify-content-between">
-    <div class="foot-nav d-flex flex-column flex-md-row">
-      <%#= link_to 'Terms' , terms_and_conditions_path, class: "mb-1 mb-md-0"%>
-      <%#= link_to 'Privacy Policy' , privacy_policy_path, class: "mb-1 mb-md-0"%>
-     <!--  <a href="javascript:;" class="mb-1 mb-md-0">Product Suggestions</a> -->
-    </div>
-    <p class="copy-text text-darkgray1 mt-3 mt-lg-0">&copy; <span class="footer_date"></span> POS All rights reserved.</p>
-  </div>
-</footer>
+<% if current_user.present? %>
+  <% if current_user.role.try(:name) == "superadmin" %>
+    <footer class="main-footer">
+      <div class="d-lg-flex align-items-center justify-content-between">
+        <div class="foot-nav d-flex flex-column flex-md-row">
+          <%#= link_to 'Terms' , terms_and_conditions_path, class: "mb-1 mb-md-0"%>
+          <%#= link_to 'Privacy Policy' , privacy_policy_path, class: "mb-1 mb-md-0"%>
+          <!--  <a href="javascript:;" class="mb-1 mb-md-0">Product Suggestions</a> -->
+        </div>
+        <p class="copy-text text-darkgray1 mt-3 mt-lg-0">&copy; <span class="footer_date"></span> POS All rights reserved.</p>
+      </div>
+    </footer>
+  <% end %>
+<% end %>
 <script>
   n =  new Date();
   y = n.getFullYear();

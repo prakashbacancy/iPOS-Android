@@ -18,7 +18,9 @@
       <div class="form-group mb-2 relative">
         <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: 'form-control input100', id: "password-field", 'data-parsley-required': 'true', 'data-parsley-required-message': 'Password cannot be blank', 'data-parsley-trigger': 'keyup' %>
         <label for="password-field">Password</label>
+        <!--
         <span toggle="#password-field" class="fa fa-eye-slash field-icon toggle-password"></span>
+        -->
       </div>
       <div class="row">
         <div class="col-md-6 col-sm-12">
@@ -37,7 +39,7 @@
           </div>
         </div>
       </div>
-      <%= f.submit "Log in", class: 'btn btn-admin fs-20 w-100 mb-4' %>
+      <%= f.submit "Log in", class: 'btn btn-primary fs-20 w-100 mb-4' %>
       <% end %>
     </div>
   </div>
