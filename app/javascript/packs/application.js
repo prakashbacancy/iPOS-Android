@@ -8,6 +8,23 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+require("jquery")
+require('bootstrap')
+require("@fortawesome/fontawesome-free/css/all.css")
+require("packs/sidebar.js")
+
+require("packs/app.min.js")
+import "../stylesheets/application" 
+
+window.jQuery = $;
+window.$ = $;
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
+})
+
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

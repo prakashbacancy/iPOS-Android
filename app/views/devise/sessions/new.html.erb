@@ -1,0 +1,155 @@
+<section class="content-wrapper admin-login ml-0">
+  <div class="content">
+    <div class="admin-login-inner mx-auto">
+      <p class="fs-24 text-darkgray1 mb-3 fw-500">POS</p>
+      <p class="fs-16 mb-3">Manage your business on the Dashboard</p>
+      <% flash.each do |key, value| %>
+        <% if key == "alert" and value == "Invalid Email or password." %>
+          <div class="alert-message-top">
+            <div class="alert alert-<%= key %>" id="flashMessage"> <%= value %></div>
+          </div>
+        <% end %>
+      <% end %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'inquiry-form'}) do |f| %>
+      <div class="form-group relative">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control input100', 'data-parsley-required': 'true', 'data-parsley-required-message': 'Email cannot be blank', 'data-parsley-trigger': 'keyup' %>
+        <label for="user_email">Email</label>
+      </div>
+      <div class="form-group mb-2 relative">
+        <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: 'form-control input100', id: "password-field", 'data-parsley-required': 'true', 'data-parsley-required-message': 'Password cannot be blank', 'data-parsley-trigger': 'keyup' %>
+        <label for="password-field">Password</label>
+        <!--
+        <span toggle="#password-field" class="fa fa-eye-slash field-icon toggle-password"></span>
+        -->
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <% if devise_mapping.rememberable? %>
+          <div class="form-group relative">
+            <div class="checkbox-area custom-control custom-checkbox">
+              <%= f.check_box :remember_me,{class: "custom-control-input"}, "1" %>
+              <%= label_tag :remember_me, "Remember Me", for: "user_remember_me", class: "custom-control-label" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group mt-3 relative">
+            <%= link_to 'Forgot Password?' , new_user_password_path, class: "forgot-password forgot-link-right text-blue1" %>
+          </div>
+        </div>
+      </div>
+      <%= f.submit "Log in", class: 'btn btn-primary fs-20 w-100 mb-4' %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<style>
+  .inquiry-form .form-group .form-control.hasValue~label,
+  .inquiry-form .form-group .form-control:focus~label {
+    padding-top: 5px;
+  }
+
+  .inquiry-form .form-control {
+    padding-top: 25px;
+    background-color: #fff !important;
+    border-color: #d2d6de !important;
+    height: calc(3.25rem + 10px);
+    padding: 5 5;
+    border-radius: 5px
+  }
+
+  .inquiry-form .form-group label {
+    top: 15px;
+    left: 23px;
+  }
+
+  @media (max-width: 575px) {
+    .inquiry-form .form-group label {
+      left: 21px;
+    }
+  }
+
+  .wrapper {
+    background-image: url('/assets/login_social_icon');
+    position: relative;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 100%;
+  }
+
+  @media (max-width: 575px) {
+    .wrapper {
+      background-size: auto 250px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .wrapper {
+      background-size: 100%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .wrapper {
+      background-size: auto;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .wrapper {
+      background-size: auto;
+    }
+  }
+
+  .main-footer {
+    opacity: 0.9;
+  }
+
+  .admin-login-inner {
+    border: #FAFAFA !important;
+  }
+
+  @media (min-width: 575px) {
+    .col-sm-12 {
+      text-align: right !important;
+    }
+  }
+</style>
+
+<script type="text/javascript">
+  $(function() {
+    $('input').blur();
+  });
+
+  label_animation = (element) => {
+    if ($(element).val().trim() != "") {
+      $(element).addClass('hasValue');
+    } else {
+      $(element).removeClass('hasValue');
+    }
+  }
+
+  $('.input100').each(function() {
+    $(this).on('blur', function() {
+      label_animation(this);
+    })
+  })
+
+  $(".toggle-password").click(function() {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+
+  $('.input100').on('change', function() {
+    $('.input100').each(function() {
+      label_animation(this);
+    })
+  })
+</script>

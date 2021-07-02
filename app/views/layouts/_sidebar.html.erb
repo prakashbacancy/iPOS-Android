@@ -1,0 +1,24 @@
+<!-- Left side column. -->
+<aside class="main-sidebar">
+  <div class="sidebar">
+    <% if current_user.present? %>
+      <% if current_user.role.try(:name) == "superadmin" %>
+        <ul class="sidebar-menu">
+          <li class="menu <%= active_menu_class(:dashboard) %>">
+            <%= link_to root_path do %>
+              <span>Dashboard</span>
+            <% end %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="sidebar-menu">
+          <li class="menu <%= active_menu_class(:dashboard) %>">
+            <%= link_to root_path do %>
+              <span>Dashboard</span>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</aside>

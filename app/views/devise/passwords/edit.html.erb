@@ -1,0 +1,42 @@
+<section class="content-wrapper admin-login ml-0"> 
+  <div class="content">
+    <div class="admin-login-inner bg-white mx-auto">
+      <h2 class="admin-main-title text-darkgray1 mb-3">Change your password</h2>
+      <%= form_for(resource, as: resource_name, validate: true, url: password_path(resource_name), html: { method: :put, class: 'inquiry-form' }) do |f| %>
+        <% flash.each do |key, value| %>
+          <% if key == "alert" %>
+            <div class="alert-message-top">
+              <div class="alert alert-<%= key %>" id="flashMessage"> <%= value %></div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="form-group">
+          <%= f.password_field :password, autofocus: true, class: 'form-control','data-parsley-required': 'true', 'data-parsley-required-message': 'Password cannot be blank', 'data-parsley-trigger': 'keyup focusout','data-parsley-equalto' => '#user_password','data-parsley-equalto-message' => 'Password and Confirm Password does not match', 'data-parsley-minlength': "6" %>
+          <%= f.label :password, "New password" %>
+          <%= f.hidden_field :reset_password_token %>
+          <!-- <label for="user_email">Email</label> -->
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, class: 'form-control', 'data-parsley-required': 'true', 'data-parsley-required-message': 'Password cannot be blank', 'data-parsley-trigger': 'keyup focusout','data-parsley-equalto' => '#user_password','data-parsley-equalto-message' => 'Password and Confirm Password does not match', 'data-parsley-minlength': "6" %>
+          <%= f.label :password_confirmation, "Confirm new password" %>
+          <!-- <label for="user_email">Email</label> -->
+        </div>
+        <%= f.submit "Change my password", class: 'btn btn-admin fs-20 w-100 mb-4' %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  (function ($) {
+    // "use strict"; // Start of use strict
+
+    // Detect when form-control inputs are not empty
+    $(".inquiry-form .form-control").on("input", function () {
+      if ($(this).val()) {
+        $(this).addClass("hasValue");
+      } else {
+        $(this).removeClass("hasValue");
+      }
+    });
+  })(jQuery); // End of use strict
+</script>
