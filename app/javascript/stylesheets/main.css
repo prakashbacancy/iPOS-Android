@@ -13293,7 +13293,8 @@ a:hover {
 }
 
 .sidebar-toggle:before {
-  content: "\f0c9"
+  /* content: "\f0c9" */
+  margin-left: 10px;
 }
 
 .sidebar-toggle:hover {
